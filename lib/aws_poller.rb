@@ -10,11 +10,13 @@ class AwsPoller
   def poll
     ret = {}
     begin
-      resp = @client.describe_stack_summary(stack_id: @stack_id)
-      ret[:online] = resp.stack_summary.instances_count.online
-      ret[:running_setup] = resp.stack_summary.instances_count.running_setup
-      ret[:setup_failed] = resp.stack_summary.instances_count.setup_failed
-      ret[:start_failed] = resp.stack_summary.instances_count.start_failed
+      stack_resp = @client.describe_stack_summary(stack_id: @stack_id)
+      deploy_resp = @client.describe_deployments(stack_id: @stack_id).deployments.first
+      ret[:online] = stack_resp.stack_summary.instances_count.online
+      ret[:running_setup] = stack_resp.stack_summary.instances_count.running_setup
+      ret[:setup_failed] = stack_resp.stack_summary.instances_count.setup_failed
+      ret[:start_failed] = stack_resp.stack_summary.instances_count.start_failed
+      ret[:deploy_state] = deploy_resp.status
       ret
     rescue StandardError
       ret[:exception] = true
