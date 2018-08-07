@@ -3,7 +3,7 @@ require 'yaml'
 
 require 'ops_tray'
 require 'aws_poller'
-require 'icon_drawer'
+require 'icon_factory'
 require 'configuration'
 
 class Opswatch

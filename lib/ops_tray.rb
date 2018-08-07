@@ -21,13 +21,13 @@ class OpsTray < AppIndicator::AppIndicator
     puts status
     case status
     when 'ONLINE'
-      set_icon @icons['smile'].path
+      set_icon @icons['positive'].path
     when 'OFFLINE'
-      set_icon @icons['sad'].path
+      set_icon @icons['off'].path
     when 'DEPLOYING'
-      set_icon @icons['thinking'].path
+      set_icon @icons['hold'].path
     when 'FAILED'
-      set_icon @icons['crying'].path
+      set_icon @icons['negative'].path
     when 'INVALID_STATE'
       set_icon 'dialog-question'
     end
