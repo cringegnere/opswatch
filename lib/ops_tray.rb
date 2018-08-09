@@ -8,9 +8,9 @@ class OpsTray < AppIndicator::AppIndicator
 
   def update_status(resp)
     ret = 'ONLINE' if resp[:online] && resp[:deploy_state] == 'successful'
-    ret = 'OFFLINE' if resp[:online].nil?
-    ret = 'DEPLOYING' if resp[:running_setup] || resp[:deploy_state] == 'running'
     ret = 'FAILED' if resp[:setup_failed] || resp[:start_failed] || resp[:deploy_state] == 'failed'
+    ret = 'OFFLINE' if resp[:online].nil? && resp[:setup_failed].nil? && resp[:start_failed].nil?
+    ret = 'DEPLOYING' if resp[:running_setup] || resp[:deploy_state] == 'running'
     ret = 'INVALID_STATE' if resp[:exception]
     set_icon_status(ret)
   end
