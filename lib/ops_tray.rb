@@ -1,3 +1,5 @@
+require 'ruby-libappindicator'
+
 class OpsTray < AppIndicator::AppIndicator
   def initialize(name, icons)
     super(name, "dialog-question", AppIndicator::Category::APPLICATION_STATUS)
@@ -21,13 +23,13 @@ class OpsTray < AppIndicator::AppIndicator
     puts status
     case status
     when 'ONLINE'
-      set_icon @icons['positive'].path
+      set_icon @icons.fetch('positive')
     when 'OFFLINE'
-      set_icon @icons['off'].path
+      set_icon @icons.fetch('off')
     when 'DEPLOYING'
-      set_icon @icons['hold'].path
+      set_icon @icons.fetch('hold')
     when 'FAILED'
-      set_icon @icons['negative'].path
+      set_icon @icons.fetch('negative')
     when 'INVALID_STATE'
       set_icon 'dialog-question'
     end
