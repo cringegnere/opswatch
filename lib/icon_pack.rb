@@ -1,6 +1,6 @@
 require 'rmagick'
 require 'tempfile'
-require 'icon'
+require_relative 'icon'
 
 class IconPack
   def initialize(stack_name, icon_paths = nil)
