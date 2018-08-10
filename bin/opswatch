@@ -3,5 +3,6 @@
 GEM_ROOT = File.expand_path("../..", __FILE__)
 
 require 'opswatch'
+require 'pry'
 
 Opswatch::Main.start ARGV
