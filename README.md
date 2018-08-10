@@ -1,4 +1,5 @@
-# Opswatch
+# Opswatch [![CircleCI](https://circleci.com/gh/gianlucarizzo/opswatch.svg?style=svg)](https://circleci.com/gh/gianlucarizzo/opswatch)
+
 
 Final version of this readme will be provided with first release...please standby!
 
