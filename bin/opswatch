@@ -6,5 +6,6 @@ lib_dir = File.join(File.dirname(__FILE__), '..', 'lib')
 $LOAD_PATH.unshift lib_dir if File.directory?(lib_dir)
 
 require 'opswatch'
+require 'pry'
 
 Opswatch.start ARGV
