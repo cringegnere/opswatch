@@ -16,21 +16,23 @@ module Opswatch
         @groups[k] = { tray: OpsTray.new(k, IconPack.new(k)), poller: AwsPoller.new(v) }
       end
 
-      def self.start(_argv = nil)
-        @instance = new
+      Gtk.timeout_add(5000) { poll }
+    end
 
-        Gtk.main
+    def self.start(_argv = nil)
+      @instance = new
+
+      Gtk.main
+    end
+
+    private
+
+    def poll
+      @groups.each do |_k, g|
+        res = g[:poller].poll
+        g[:tray].update_status(res)
       end
-
-      private
-
-      def poll
-        @groups.each do |_k, g|
-          res = g[:poller].poll
-          g[:tray].update_status(res)
-        end
-        true
-      end
+      true
     end
   end
 end
