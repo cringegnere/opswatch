@@ -27,7 +27,7 @@ class Icon
     img = ImageList.new(@source_path)
     drawer = Magick::Draw.new
     drawer.annotate(img, 0, 0, 60, 10, stack_initial) do
-      self.font = 'Arial'
+      self.font = "#{GEM_ROOT}/fonts/arial.ttf"
       self.pointsize = 512
       self.font_weight = Magick::BoldWeight
       self.fill = 'white'

@@ -1,5 +1,4 @@
 require "opswatch/version"
-require 'ruby-libappindicator'
 require 'yaml'
 
 require 'ops_tray'
