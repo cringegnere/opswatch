@@ -6,7 +6,7 @@ Gem::Specification.new do |spec|
   spec.name          = "opswatch"
   spec.version       = Opswatch::VERSION
   spec.authors       = ["Gianluca Rizzo"]
-  spec.email         = ["giangio.io2@gmail.com"]
+  spec.email         = ["ing.rizzo.gianluca@gmail.com"]
 
   spec.summary = 'Simple tray application that notifies the status of your Opswork stacks'
   spec.description   = 'Simple tool that helps an AWS OpsWorks user to be constantly informed about the status of multiple stacks'
