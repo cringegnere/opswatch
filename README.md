@@ -1,15 +1,45 @@
 # Opswatch [![CircleCI](https://circleci.com/gh/gianlucarizzo/opswatch.svg?style=svg)](https://circleci.com/gh/gianlucarizzo/opswatch)
 
+Version 0.1.0 (first release)
 
-Final version of this readme will be provided with first release...please standby!
+OpsWatch lets you track your AWS OpsWorks stacks status in real time on your traybar with a single glance.
+Easy to configure and to use. This first version has nothing fancy, but new features and ideas are welcome!
 
 ## Installation
 
-TODO: Write installation instructions here
+To install simply use
+```
+gem install opswatch
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+First run will ask you to input Amazon AWS stack information:
+```
+opswatch
+- Let's set things up
+- Stack Name (can be anything):
+Production
+- Region (e.g. eu-central-1):
+eu-central-1
+- IAM User key:
+XXXXXXXXX
+- IAM User secret:
+XXXXXXXXX
+- OpsWorks Stack ID:
+id1234567
+- Insert other Stack? (Y/n)
+n
+```
+a file `.opswatch.yml` in your `$HOME` path will be created to store your configuration, and the traybar will be shown on your UI.
+
+After this, you need to simply run
+```
+opswatch
+```
+again to use the last settings.
+
+If you want to start from scratch you can just delete the `.opswatch.yml` file from your `$HOME` path.
 
 ## Development
 
@@ -19,7 +49,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/opswatch. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/gianlucarizzo/opswatch. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 

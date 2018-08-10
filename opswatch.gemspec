@@ -8,16 +8,17 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Gianluca Rizzo"]
   spec.email         = ["ing.rizzo.gianluca@gmail.com"]
 
-  spec.summary = 'Simple tray application that notifies the status of your Opswork stacks'
-  spec.description   = 'Simple tool that helps an AWS OpsWorks user to be constantly informed about the status of multiple stacks'
+  spec.summary       = 'Simple tray application that notifies the status of your Opswork stacks.'
+  spec.description   = 'Simple tool that helps an AWS OpsWorks user to be constantly informed about the status of multiple stacks.
+                        Uses the appindicator library to show status icon on the OS traybar.'
   spec.homepage      = 'https://github.com/gianlucarizzo/opswatch'
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})
   end
-  spec.bindir = 'bin'
-  spec.executable = 'opswatch'
+  spec.bindir        = 'bin'
+  spec.executable    = 'opswatch'
   spec.require_paths = ['lib']
 
   spec.add_development_dependency "bundler", "~> 1.16"

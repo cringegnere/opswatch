@@ -26,7 +26,6 @@ module Opswatch
     end
 
     def set_icon_status(status)
-      puts status
       case status
       when 'ONLINE'
         set_icon @icon_pack.fetch('positive')
