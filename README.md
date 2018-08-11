@@ -1,4 +1,4 @@
-# Opswatch [![CircleCI](https://circleci.com/gh/gianlucarizzo/opswatch.svg?style=svg)](https://circleci.com/gh/gianlucarizzo/opswatch)
+# Opswatch [![Gem Version](https://badge.fury.io/rb/opswatch.svg)](https://badge.fury.io/rb/opswatch) [![CircleCI](https://circleci.com/gh/gianlucarizzo/opswatch.svg?style=svg)](https://circleci.com/gh/gianlucarizzo/opswatch)
 
 Version 0.1.0 (first release)
 
