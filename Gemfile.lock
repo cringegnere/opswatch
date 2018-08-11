@@ -614,6 +614,8 @@ GEM
     ci_reporter_minitest (1.0.0)
       ci_reporter (~> 2.0)
       minitest (~> 5.0)
+    codacy-coverage (2.0.0)
+      simplecov
     coveralls (0.8.22)
       json (>= 1.8, < 3)
       simplecov (~> 0.16.1)
@@ -664,6 +666,7 @@ PLATFORMS
 DEPENDENCIES
   bundler (~> 1.16)
   ci_reporter_minitest (~> 1.0.0)
+  codacy-coverage (~> 2.0.0)
   coveralls (~> 0.8.22)
   minitest (~> 5.0)
   opswatch!
