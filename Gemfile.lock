@@ -602,12 +602,18 @@ GEM
       aws-sigv4 (~> 1.0)
     aws-sigv2 (1.0.1)
     aws-sigv4 (1.0.3)
+    builder (3.2.3)
     cairo (1.15.13)
       native-package-installer (>= 1.0.3)
       pkg-config (>= 1.2.2)
     cairo-gobject (3.2.9)
       cairo
       glib2 (= 3.2.9)
+    ci_reporter (2.0.0)
+      builder (>= 2.1.2)
+    ci_reporter_minitest (1.0.0)
+      ci_reporter (~> 2.0)
+      minitest (~> 5.0)
     gdk_pixbuf2 (3.2.9)
       gio2 (= 3.2.9)
     gio2 (3.2.9)
@@ -640,6 +646,7 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (~> 1.16)
+  ci_reporter_minitest (~> 1.0.0)
   minitest (~> 5.0)
   opswatch!
   rake (~> 10.0)
