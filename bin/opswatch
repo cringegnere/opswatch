@@ -2,9 +2,6 @@
 
 GEM_ROOT = File.expand_path("../..", __FILE__)
 
-lib_dir = File.join(File.dirname(__FILE__), '..', 'lib')
-$LOAD_PATH.unshift lib_dir if File.directory?(lib_dir)
-
 require 'opswatch'
 
-Opswatch.start ARGV
+Opswatch::Main.start ARGV

@@ -1,35 +1,43 @@
-class OpsTray < AppIndicator::AppIndicator
-  def initialize(name, icons)
-    super(name, "dialog-question", AppIndicator::Category::APPLICATION_STATUS)
-    set_menu(Gtk::Menu.new)
-    set_status(AppIndicator::Status::ACTIVE)
-    @icons = icons
-  end
+require 'ruby-libappindicator'
 
-  def update_status(resp)
-    ret = 'ONLINE' if resp[:online] && resp[:deploy_state] == 'successful'
-    ret = 'FAILED' if resp[:setup_failed] || resp[:start_failed] || resp[:deploy_state] == 'failed'
-    ret = 'OFFLINE' if resp[:online].nil? && resp[:setup_failed].nil? && resp[:start_failed].nil?
-    ret = 'DEPLOYING' if resp[:running_setup] || resp[:deploy_state] == 'running'
-    ret = 'INVALID_STATE' if resp[:exception]
-    set_icon_status(ret)
-  end
+module Opswatch
+  class OpsTray < AppIndicator::AppIndicator
+    def initialize(name, icon_pack)
+      super(name, "dialog-question", AppIndicator::Category::APPLICATION_STATUS)
+      set_menu(Gtk::Menu.new)
+      set_status(AppIndicator::Status::ACTIVE)
+      @icon_pack = icon_pack
+    end
 
-  private
+    def update_status(resp)
+      set_icon_status(compute_status(resp))
+    end
 
-  def set_icon_status(status)
-    puts status
-    case status
-    when 'ONLINE'
-      set_icon @icons['positive'].path
-    when 'OFFLINE'
-      set_icon @icons['off'].path
-    when 'DEPLOYING'
-      set_icon @icons['hold'].path
-    when 'FAILED'
-      set_icon @icons['negative'].path
-    when 'INVALID_STATE'
-      set_icon 'dialog-question'
+    private
+
+    def compute_status(resp)
+      ret = 'UNKNOWN_STATE'
+      ret = 'ONLINE' if resp[:online] && resp[:deploy_state] == 'successful'
+      ret = 'FAILED' if resp[:setup_failed] || resp[:start_failed] || resp[:deploy_state] == 'failed'
+      ret = 'OFFLINE' if resp[:online].nil? && resp[:setup_failed].nil? && resp[:start_failed].nil?
+      ret = 'DEPLOYING' if resp[:running_setup] || resp[:deploy_state] == 'running'
+      ret = 'INVALID_STATE' if resp[:exception]
+      ret
+    end
+
+    def set_icon_status(status)
+      case status
+      when 'ONLINE'
+        set_icon @icon_pack.fetch('positive')
+      when 'OFFLINE'
+        set_icon @icon_pack.fetch('off')
+      when 'DEPLOYING'
+        set_icon @icon_pack.fetch('hold')
+      when 'FAILED'
+        set_icon @icon_pack.fetch('negative')
+      when 'INVALID_STATE'
+        set_icon 'dialog-question'
+      end
     end
   end
 end
