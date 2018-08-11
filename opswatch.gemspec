@@ -27,6 +27,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "ci_reporter_minitest", "~> 1.0.0"
   spec.add_development_dependency "simplecov", "~> 0.16.1"
   spec.add_development_dependency "coveralls", "~> 0.8.22"
+  spec.add_development_dependency "codacy-coverage", "~> 2.0.0"
 
   spec.add_runtime_dependency('aws-sdk', "~> 3.0.1")
   spec.add_runtime_dependency('rmagick', "~> 2.16.0")
