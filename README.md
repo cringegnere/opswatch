@@ -1,4 +1,4 @@
-# Opswatch [![Gem Version](https://badge.fury.io/rb/opswatch.svg)](https://badge.fury.io/rb/opswatch) [![CircleCI](https://circleci.com/gh/gianlucarizzo/opswatch.svg?style=svg)](https://circleci.com/gh/gianlucarizzo/opswatch) [![Coverage Status](https://coveralls.io/repos/github/gianlucarizzo/opswatch/badge.svg?branch=master)](https://coveralls.io/github/gianlucarizzo/opswatch?branch=master)
+# Opswatch [![Gem Version](https://badge.fury.io/rb/opswatch.svg)](https://badge.fury.io/rb/opswatch) [![CircleCI](https://circleci.com/gh/gianlucarizzo/opswatch.svg?style=svg)](https://circleci.com/gh/gianlucarizzo/opswatch) [![Coverage Status](https://coveralls.io/repos/github/gianlucarizzo/opswatch/badge.svg?branch=master&service=github)](https://coveralls.io/github/gianlucarizzo/opswatch?branch=master)
 
 Version 0.1.0 (first release)
 
