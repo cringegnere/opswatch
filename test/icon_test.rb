@@ -15,5 +15,9 @@ module Opswatch
     def test_stack_initial
       assert_equal 'T', @icon.send(:stack_initial)
     end
+
+    def test_stack_name_getter
+      assert_equal 'test', @icon.stack_name
+    end
   end
 end

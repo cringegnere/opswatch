@@ -5,8 +5,8 @@ require "test_helper"
 module Opswatch
   class OpsTrayTest < MiniTest::Test
     def setup
-      @icons = IconPack.new('Test')
-      @opstray = OpsTray.new('Test', @icons)
+      @icon_pack = IconPack.new('Test')
+      @opstray = OpsTray.new('Test', @icon_pack)
     end
 
     def test_compute_status
@@ -48,6 +48,14 @@ module Opswatch
 
       resp = { online: nil, running_setup: nil, setup_failed: nil, start_failed: nil, deploy_state: nil, exception: true }
       assert_equal 'INVALID_STATE', @opstray.send(:compute_status, resp)
+    end
+
+    def test_set_icon_status
+      @opstray.stub(:set_icon, true) do
+        %w[ONLINE OFFLINE DEPLOYING FAILED INVALID_STATE].each do |valid_status|
+          assert_send([@opstray, :set_icon_status, valid_status])
+        end
+      end
     end
   end
 end
